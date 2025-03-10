@@ -25,11 +25,11 @@ const Header = () => {
     }
     const handleShow = () => {
         setShow(!show)
-        setBiz(!biz)
+        setBiz(false)
     }
     const handleBiz = () => {
         setBiz(!biz)
-        setShow(!show)
+        setShow(false)
     }
 
 
