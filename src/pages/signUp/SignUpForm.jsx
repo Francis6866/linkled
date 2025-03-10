@@ -1,11 +1,14 @@
 import React, { useState } from 'react'
+import { FcGoogle } from "react-icons/fc";
+import { useNavigate } from 'react-router';
 // #E8F0FE
 const SignUpForm = () => {
     const [mail, setMail] = useState('')
     const [mailError, setMailError] = useState(false)
     const [password, setPassword] = useState('')
     const [passwordError, setPasswordError] = useState(false)
-    const [show, setShow] = useState(false)
+    const [show, setShow] = useState(false);
+    const navigate = useNavigate()
 
 
     const checkMail = () => {
@@ -34,12 +37,16 @@ const SignUpForm = () => {
             localStorage.setItem('userDetails', JSON.stringify(details))
         }
 
-        setMail('')
-        setPassword('')
+        setMail('');
+        setPassword('');
+        navigate('/login')
     }
 
   return (
     <div className='flex flex-col items-center gap-4'>
+        <header  className='self-start p-4 text-3xl font-bold text-[#0A66C2]'>
+            <h1>Linked<span className='bg-[#0A66C2] text-amber-50 px-1 py-0'>in</span></h1>
+        </header>
         <h1 className='text-3xl'>Make the most of your professional life</h1>
         <form 
         action="" 
@@ -110,9 +117,10 @@ const SignUpForm = () => {
 
             {/* google sign up */}
             <div>
-                <div className='border rounded-4xl flex justify-center py-3'>
-                    <p>Continue with Google</p>
-                </div>
+            <div className='border rounded-4xl flex justify-center items-center gap-2 py-3'>
+                <FcGoogle />
+                <p>Continue with Google</p>
+            </div>
             </div>
 
             {/* Already signed in */}

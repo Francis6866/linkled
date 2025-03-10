@@ -1,5 +1,6 @@
 import React, { useState, useEffect }  from 'react'
 import { FcGoogle } from "react-icons/fc";
+import { useNavigate } from 'react-router';
 
 
 const SignInForm = () => {
@@ -9,6 +10,7 @@ const SignInForm = () => {
     const [passwordError, setPasswordError] = useState(false)
     const [show, setShow] = useState(false)
     const [retrievedData, setRetrivedData] = useState({})
+    const navigate = useNavigate()
 
     useEffect(()=>{
         let details = JSON.parse(localStorage.getItem('userDetails'))
@@ -21,6 +23,7 @@ const SignInForm = () => {
             alert('Welcome Back')
             setMail('')
             setPassword('')
+            navigate('/')
         } else {
             alert('Email or Password is incorrect')
         }
