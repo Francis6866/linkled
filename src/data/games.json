@@ -1,0 +1,22 @@
+[
+    {
+        "imgUrl": "/games/tango.png",
+        "name": "Tango",
+        "text": "Harmonize the grid"
+    },
+    {
+        "imgUrl": "/games/pinpoint.jpeg",
+        "name": "Pinpoint",
+        "text": "Guess the category"
+    },
+    {
+        "imgUrl": "/games/queens.jpeg",
+        "name": "Queens",
+        "text": "Crown each region"
+    },
+    {
+        "imgUrl": "/games/crosslimb.png",
+        "name": "Crossclimb",
+        "text": "Unluck a trivia ladder"
+    }
+]
