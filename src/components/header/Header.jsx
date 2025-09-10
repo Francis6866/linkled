@@ -58,25 +58,25 @@ const Header = () => {
 
             <nav className={`w-[85%] md:w-auto ${focus && 'hidden'}`}>
                 <ul className='flex justify-evenly gap-6'>
-                    <NavLink to="/" className={({isActive}) => isActive ? "flex flex-col items-center justify-center pb-2 border-b-2 border-black" : "flex flex-col items-center justify-center"}>
+                    <NavLink to="/main" className={({isActive}) => isActive ? "flex flex-col items-center justify-center pb-2 border-b-2 border-black" : "flex flex-col items-center justify-center"} end>
                         <IoHomeSharp size={'25px'}/>
                         <p className='hidden md:block text-[0.75rem]'>Home</p>
                     </NavLink>
 
-                    <NavLink to="/network" className={({isActive}) => isActive ? "flex flex-col items-center justify-center pb-2 border-b-2 border-black" : "flex flex-col items-center justify-center"}>
+                    <NavLink to="network" className={({isActive}) => isActive ? "flex flex-col items-center justify-center pb-2 border-b-2 border-black" : "flex flex-col items-center justify-center"}>
                         <BsFillPeopleFill size={'25px'}/>
                         <p className='hidden md:block text-[0.75rem]'>My Network</p>
                     </NavLink>
 
-                    <NavLink to="/jobs" className={({isActive}) => isActive ? "flex flex-col items-center justify-center pb-2 border-b-2 border-black" : "flex flex-col items-center justify-center"}>
+                    <NavLink to="jobs" className={({isActive}) => isActive ? "flex flex-col items-center justify-center pb-2 border-b-2 border-black" : "flex flex-col items-center justify-center"}>
                         <BsFillBriefcaseFill size={'25px'}/>
                         <p className='hidden md:block text-[0.75rem]'>Jobs</p>
                     </NavLink>
-                    <NavLink to="/message" className={({isActive}) => isActive ? "flex flex-col items-center justify-center pb-2 border-b-2 border-black" : "flex flex-col items-center justify-center"}>
+                    <NavLink to="message" className={({isActive}) => isActive ? "flex flex-col items-center justify-center pb-2 border-b-2 border-black" : "flex flex-col items-center justify-center"}>
                         <AiFillMessage size={'25px'}/>
                         <p className='hidden md:block text-[0.75rem]'>Messaging</p>
                     </NavLink>
-                    <NavLink to="/notify" className={({isActive}) => isActive ? "flex flex-col items-center justify-center pb-2 border-b-2 border-black" : "flex flex-col items-center justify-center"}>
+                    <NavLink to="notify" className={({isActive}) => isActive ? "flex flex-col items-center justify-center pb-2 border-b-2 border-black" : "flex flex-col items-center justify-center"}>
                         <FaBell size={'25px'}/>
                         <p className='hidden md:block text-[0.75rem]'>Notification</p>
                     </NavLink>

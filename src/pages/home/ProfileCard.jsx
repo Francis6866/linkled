@@ -2,13 +2,17 @@ import React from 'react'
 import { useState } from 'react'
 import { useEffect } from 'react'
 
-const ProfileCard = () => {
-    const [name, setName] = useState({})
+const ProfileCard = ({
+    occupation = "",
+    country = "",
+    agency = ""
+}) => {
+    const [userName, setUserName] = useState()
 
     useEffect(()=>{
         let details = JSON.parse(localStorage.getItem('userDetails'))
-        console.log("profile", details)
-        setName(details)
+        console.log("profile", details.username)
+        setUserName(details.username)
     }, [])
 
 
@@ -39,10 +43,19 @@ const ProfileCard = () => {
 
         {/* card details */}
         <div className='mt-12 px-6 py-2'>
-            <h2 className='font-bold text-2xl'>Francis james</h2>
-            <p className="agency text-[0.85rem]">Software Developer at 3MTT Nigeria</p>
-            <p className="location text-[0.85rem] opacity-50">Nigeria</p>
-            <p className="agency-logo text-[1rem]">3MTT Nigeria</p>
+            <h2 className='font-bold text-2xl'>{userName}</h2>
+            {
+                occupation && country && agency ? (
+                    <>
+                        <p className="agency text-[0.85rem]">Software Developer at 3MTT Nigeria</p>
+                        <p className="location text-[0.85rem] opacity-50">Nigeria</p>
+                        <p className="agency-logo text-[1rem]">3MTT Nigeria</p>
+                    </>
+                ): (
+                    <p className="mt-8 text-blue-550 cursor-pointer hover:text-red-500">add photo</p>
+                )
+            }
+            
         </div>
        </div>
     </>
