@@ -4,9 +4,11 @@ import { useNavigate } from 'react-router';
 // #E8F0FE
 const SignUpForm = () => {
     const [mail, setMail] = useState('')
+    const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
     const [mailError, setMailError] = useState(false)
     const [passwordError, setPasswordError] = useState(false)
+    const [usernameError, setUsernameError] = useState(false)
     const [show, setShow] = useState(false);
     const navigate = useNavigate()
 
@@ -30,6 +32,11 @@ const SignUpForm = () => {
             setPasswordError(true)
         }else setPasswordError(false)
     }
+    const checkUser = () => {
+        if(!username || username.length < 3) {
+            setUsernameError(true)
+        }else setUsernameError(false)
+    }
 
 
      const validate = () => {
@@ -41,6 +48,10 @@ const SignUpForm = () => {
 
         if(!password || password.length < 3) {
             errors.password = "Password should be more than 3 characters"
+        }
+
+        if(!username || username.length < 3) {
+            errors.username = "Username should be more than 3 characters"
         }
 
         return {
@@ -62,13 +73,18 @@ const SignUpForm = () => {
             }else if(result?.errors.password){
                 setPasswordError(true)
                 alert(result?.errors?.password)
+            }else if(result?.errors.username){
+                setUsernameError(true)
+                alert(result?.errors?.username)
             }
+
             return
         }
 
         let details = {
             email: mail,
-            password: password
+            password: password,
+            username
         }
 
 
@@ -90,12 +106,31 @@ const SignUpForm = () => {
         className={`w-[450px] min-w-[400px] mx-auto md:shadow-2xl p-4 rounded space-y-6`}
         onSubmit={handleSubmit}
         >
+             {/* username */}
+             <div className="mail my-8">
+                <label htmlFor="email" className='text-[0.75rem] font-bold text-[#333]'>Username:</label>
+                <div className={`border rounded ${mailError && 'border-red-600'}`}>
+                    <input 
+                    type="text" 
+                    name="username" 
+                    id="username"  
+                    placeholder='Username' 
+                    className=' w-full px-4 py-1.5 outline-0'
+                    value={username}
+                    onChange={(e) => setUsername(e.target.value)}
+                    onFocus={() => setUsernameError(false)}
+                    onBlur={checkUser}
+                    />
+                </div>
+                <p className={ usernameError ? 'text-red-600 text-[0.75rem]' : 'hidden' }>Please enter your UserName.</p>
+            </div>
+
             {/* EmailField */}
             <div className="mail my-8">
                 <label htmlFor="email" className='text-[0.75rem] font-bold text-[#333]'>Email:</label>
                 <div className={`border rounded ${mailError && 'border-red-600'}`}>
                     <input 
-                    type="text" 
+                    type="email" 
                     name="email" 
                     id="email"  
                     placeholder='Email' 

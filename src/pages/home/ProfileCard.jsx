@@ -1,6 +1,17 @@
 import React from 'react'
+import { useState } from 'react'
+import { useEffect } from 'react'
 
 const ProfileCard = () => {
+    const [name, setName] = useState({})
+
+    useEffect(()=>{
+        let details = JSON.parse(localStorage.getItem('userDetails'))
+        console.log("profile", details)
+        setName(details)
+    }, [])
+
+
   return (
     <>
     {/* profile Card */}

@@ -33,7 +33,7 @@ const Header = () => {
     }
 
 
-    console.log(focus);
+    // console.log(focus);
   return (
     <header className='border-b border-[#ccc]'>
         <div className='md:w-[1120px] mx-auto flex md:gap-4 items-center justify-between h-full'>
@@ -84,14 +84,14 @@ const Header = () => {
                         <IoPersonCircleSharp size={'25px'}/>
                         <p className='hidden md:block text-[0.75rem]'>Me</p>
                         {
-                          show && <Drop />
+                          show && <Drop text= {["Sign Out"]}/>
                         }
                     </li>
                     <li className="flex flex-col items-center justify-center border-l-2 border-l-black pl-1.5 relative" onClick={handleBiz}>
                         <TbGridDots size={'25px'}/>
                         <p className='hidden md:block text-[0.75rem]'>For Business</p>
                         {
-                          biz && <Drop />
+                          biz && <Drop text={["Facebook", "Whatsapp", "Medium"]}/>
                         }
                     </li>
                     <li className="flex flex-col items-center justify-center">
