@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import NetworkCards from './NetworkCards'
+import games from "../../data/games.json"
 
 const NetworkRight = () => {
   const [devs, setDevs] = useState(['Francis James', 'Hannah Nwokocha', 'Nelson Odu', 'Richard Sunday', 'Blessing Effiong', 'Winner Iboloke', 'Charlse Francis', 'Rejoice Micheal'])
@@ -34,34 +35,25 @@ const NetworkRight = () => {
             </div>
         </div>
 
+
              {/* puzzle */}
          <div className="flex justify-between">
-             <section className='flex items-center gap-2 border-r p-2'>
-                        <img src="" alt="" className='w-[40px] h-[40px] rounded'/>
-                        <div className="des">
-                            <h4 className='font-[500] text-[1rem]'>Queens <span className='font-normal opacity-50 text-[0.8rem]'>#307</span></h4>
-                            <p className='text-[0.8rem] opacity-50'>Monday, Mar 3</p>
+              {
+                games && games.map(game => {
+                    return (
+                        <div key={game.name} className="puzzle flex justify-between mt-2 px-4 py-2 rounded hover:bg-[#EBEBEB]">
+                            <section className='flex items-center gap-2'>
+                                <img src={game.imgUrl} alt="" className='w-[40px] h-[40px] rounded'/>
+                                <div className="des">
+                                    <h4 className='font-[500] text-[1rem]'>{game.name}</h4>
+                                    <p className='text-[0.8rem] opacity-50'>{game.text}</p>
+                                </div>
+                            </section>
+                            <p className='font-bold text-2xl'>&gt;</p>
                         </div>
-                        <button className='border border-blue-500 px-4 py-1 rounded-2xl font-bold hover:bg-[#EBF4FD] hover:border-2 text-[0.8rem]'>solve</button>
-            </section>{/* first */}
-
-             <section className='flex items-center gap-2 border-r p-2'>
-                        <img src="" alt="" className='w-[40px] h-[40px] rounded'/>
-                        <div className="des">
-                            <h4 className='font-[500] text-[1rem]'>Tango <span className='font-normal opacity-50 text-[0.8rem]'>#147</span></h4>
-                            <p className='text-[0.8rem] opacity-50'>Monday, Mar 3</p>
-                        </div>
-                        <button className='border border-blue-500 px-4 py-1 rounded-2xl font-bold hover:bg-[#EBF4FD] hover:border-2 text-[0.8rem]'>solve</button>
-            </section>{/* second */}
-
-             <section className='flex items-center gap-2 border-r p-2'>
-                        <img src="" alt="" className='w-[40px] h-[40px] rounded'/>
-                        <div className="des">
-                            <h4 className='font-[500] text-[1rem]'>Pinpoint <span className='font-normal opacity-50 text-[0.8rem]'>#307</span></h4>
-                            <p className='text-[0.8rem] opacity-50'>Monday, Mar 3</p>
-                        </div>
-                        <button className='border border-blue-500 px-4 py-1 rounded-2xl font-bold hover:bg-[#EBF4FD] hover:border-2 text-[0.8rem]'>solve</button>
-            </section>{/* Third */}
+                    )
+                })
+            }
          </div>
       </div> {/* end of in touch */}
 
