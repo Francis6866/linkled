@@ -16,11 +16,11 @@ function App() {
   return (
     <>
       <Routes>
-          {/* <Route path="signUp" element={<SignUpForm />}/>
-          <Route path="signIn" element={<SignInForm />}/> */}
+          <Route path="/" element={<SignUpForm />}/>
+          <Route path="signIn" element={<SignInForm />}/>
 
           {/* Sign in */}
-          <Route element={<OverallOut />}>
+          <Route path="main" element={<OverallOut />}>
             <Route index element={<HomeLayout2 />}/>
             <Route path="network" element={<NetworkLayout />}/>
             <Route path="jobs" element={<JobsLayout /> }/>

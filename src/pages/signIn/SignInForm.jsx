@@ -17,13 +17,45 @@ const SignInForm = () => {
         setRetrivedData(details)
     }, [])
 
+    const validate = () => {
+        let errors = {}
+        let regEx = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
+        if(!mail || !mail.match(regEx)) {
+            errors.mail = "Email must be valid"
+        }
+
+        if(!password || password.length < 3) {
+            errors.password = "Password should be more than 3 characters"
+        }
+
+        return {
+            isValid: Object.keys(errors).length === 0,
+            errors
+        }
+    }
+
     const handleSignIn = (e) => {
         e.preventDefault();
+
+        const result = validate();
+
+        if(!result.isValid){
+            if(result?.errors.mail) {
+                setMailError(true)
+                alert(result?.errors?.mail)
+            }else if(result?.errors.password){
+                setPasswordError(true)
+                alert(result?.errors?.password)
+            }
+            return
+        }
+
+
         if (mail.toLocaleLowerCase() === retrievedData.email.toLocaleLowerCase() && password === retrievedData.password ) {
             alert('Welcome Back')
             setMail('')
             setPassword('')
-            navigate('/')
+            navigate('/main')
         } else {
             alert('Email or Password is incorrect')
         }
@@ -66,7 +98,6 @@ const SignInForm = () => {
                     id="email"  
                     placeholder='Email' 
                     className=' w-full px-4 py-1.5 outline-0'
-                    value={mail}
                     onChange={(e) => setMail(e.target.value)}
                     onFocus={() => setMailError(false)}
                     onBlur={checkMail}
@@ -85,7 +116,6 @@ const SignInForm = () => {
                     id="password"  
                     placeholder='Password' 
                     className=' w-full px-4 py-1.5 outline-0'
-                    value={password}
                     onChange={(e)=>setPassword(e.target.value)}
                     onFocus={() => setPasswordError(false)}
                     onBlur={checkPassword}

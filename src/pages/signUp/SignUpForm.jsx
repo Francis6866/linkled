@@ -4,12 +4,19 @@ import { useNavigate } from 'react-router';
 // #E8F0FE
 const SignUpForm = () => {
     const [mail, setMail] = useState('')
-    const [mailError, setMailError] = useState(false)
     const [password, setPassword] = useState('')
+    const [mailError, setMailError] = useState(false)
     const [passwordError, setPasswordError] = useState(false)
     const [show, setShow] = useState(false);
     const navigate = useNavigate()
 
+
+    // const checkMail = () => {
+    //     let regEx = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
+    //     if(!mail || !mail.match(regEx)) {
+    //         setMailError(true)
+    //     }else setMailError(false)
+    // }
 
     const checkMail = () => {
         let regEx = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
@@ -19,27 +26,57 @@ const SignUpForm = () => {
     }
 
     const checkPassword = () => {
-        if(!password || password.length < 0) {
+        if(!password || password.length < 3) {
             setPasswordError(true)
         }else setPasswordError(false)
     }
 
+
+     const validate = () => {
+        let errors = {}
+        let regEx = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
+        if(!mail || !mail.match(regEx)) {
+            errors.mail = "Email must be valid"
+        }
+
+        if(!password || password.length < 3) {
+            errors.password = "Password should be more than 3 characters"
+        }
+
+        return {
+            isValid: Object.keys(errors).length === 0,
+            errors
+        }
+    }
+
     const handleSubmit = (e) => {
         e.preventDefault();
-        if(mail == '' || mail.length < 0 || password == '' || password.length < 0){
-            alert('Invalid Inputs')
-        }else{
-            let details = {
-                email: mail,
-                password: password
-            }
 
-            localStorage.setItem('userDetails', JSON.stringify(details))
+        const result = validate();
+
+
+        if(!result.isValid){
+            if(result?.errors.mail) {
+                setMailError(true)
+                alert(result?.errors?.mail)
+            }else if(result?.errors.password){
+                setPasswordError(true)
+                alert(result?.errors?.password)
+            }
+            return
         }
+
+        let details = {
+            email: mail,
+            password: password
+        }
+
+
+        localStorage.setItem('userDetails', JSON.stringify(details))
 
         setMail('');
         setPassword('');
-        navigate('/login')
+        navigate('/signIn')
     }
 
   return (
@@ -55,7 +92,7 @@ const SignUpForm = () => {
         >
             {/* EmailField */}
             <div className="mail my-8">
-                <label htmlFor="email" className='text-[0.75rem] font-bold text-[#333]'>Email or phone number</label>
+                <label htmlFor="email" className='text-[0.75rem] font-bold text-[#333]'>Email:</label>
                 <div className={`border rounded ${mailError && 'border-red-600'}`}>
                     <input 
                     type="text" 
@@ -69,7 +106,7 @@ const SignUpForm = () => {
                     onBlur={checkMail}
                     />
                 </div>
-                <p className={ mailError ? 'text-red-600 text-[0.75rem]' : 'hidden' }>Please enter your email address or mobile number.</p>
+                <p className={ mailError ? 'text-red-600 text-[0.75rem]' : 'hidden' }>Please enter your email address.</p>
             </div>
 
             {/* passwordField */}
