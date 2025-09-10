@@ -9,7 +9,15 @@ import { NavLink } from 'react-router';
 import Drop from './Drop';
 
 
-
+const SignOut = ({ handleSignOut }) => {
+    return (
+        <div className='absolute top-full w-[150px] -left-3.5 bg-white shadow-lg z-50 mt-1 rounded-[5px] overflow-hidden flex justify-center items-center py-6 px-2'>
+            <button className="cursor-pointer font-bold hover:text-red-500" onClick={handleSignOut}>
+                Sign Out
+            </button>
+        </div>
+    )
+}
 
 
 
@@ -23,13 +31,20 @@ const Header = () => {
         inputRef.current.focus()
         setFocus(true)
     }
+
     const handleShow = () => {
         setShow(!show)
         setBiz(false)
     }
+
     const handleBiz = () => {
         setBiz(!biz)
         setShow(false)
+    }
+
+    const handleSignOut = () => {
+        localStorage.removeItem("userName")
+        window.location.reload()
     }
 
 
@@ -84,7 +99,7 @@ const Header = () => {
                         <IoPersonCircleSharp size={'25px'}/>
                         <p className='hidden md:block text-[0.75rem]'>Me</p>
                         {
-                          show && <Drop text= {["Sign Out"]}/>
+                          show && <SignOut handleSignOut={handleSignOut} />
                         }
                     </li>
                     <li className="flex flex-col items-center justify-center border-l-2 border-l-black pl-1.5 relative" onClick={handleBiz}>

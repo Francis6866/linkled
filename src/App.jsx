@@ -10,6 +10,9 @@ import SignUpForm from "./pages/signUp/SignUpForm"
 import OverallOut from "./layouts/OverallOut"
 import Protected from "./components/Protected"
 
+// TODO:
+// add key to feed.jsx:10
+// clear localstorage and refresh browser
 
 function App() {
 

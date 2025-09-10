@@ -51,7 +51,9 @@ const SignInForm = () => {
         }
 
 
-        if (mail.toLocaleLowerCase() === retrievedData.email.toLocaleLowerCase() && password === retrievedData.password ) {
+        if (mail.toLocaleLowerCase() === retrievedData.email.toLocaleLowerCase() 
+        && password === retrievedData.password ) {
+            localStorage.setItem('userName', JSON.stringify(retrievedData.username))
             alert('Welcome Back')
             setMail('')
             setPassword('')

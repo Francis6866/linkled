@@ -10,9 +10,9 @@ const Feeds = () => {
     <>
     {/* feeds */}
         {
-            datas && datas?.map(data => {
+            datas && datas?.map((data, index) => {
                 return (
-                    <div className="feed shadow rounded-[10px] overflow-hidden p-4 space-y-2">
+                    <div key={index} className="feed shadow rounded-[10px] overflow-hidden p-4 space-y-2">
             <FeedSug />
 
                     <div className="mb-4">

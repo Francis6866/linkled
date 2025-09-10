@@ -89,6 +89,7 @@ const SignUpForm = () => {
 
 
         localStorage.setItem('userDetails', JSON.stringify(details))
+        // localStorage.setItem('userName', JSON.stringify(details.username))
 
         setMail('');
         setPassword('');
