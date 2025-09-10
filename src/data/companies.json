@@ -1,1 +1,17 @@
-[{}]
+[
+    {
+        "company": "LinkedIn",
+        "logoUrl": "/public/companies/linkedin.jpeg",
+        "description": "Company. Software Development"
+    },
+    {
+        "company": "alx_africa",
+        "logoUrl": "/public/companies/alx.png",
+        "description": "Company. E-Learning Providers"
+    },
+    {
+        "company": "Google",
+        "logoUrl": "/public/companies/google.png",
+        "description": "Company. Software Development"
+    }
+]

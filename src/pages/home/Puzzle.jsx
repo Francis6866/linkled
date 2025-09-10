@@ -10,7 +10,7 @@ const Puzzle = () => {
             {
                 games && games.map(game => {
                     return (
-                        <div className="puzzle flex justify-between mt-2 px-4 py-2 rounded hover:bg-[#EBEBEB]">
+                        <div key={game.name} className="puzzle flex justify-between mt-2 px-4 py-2 rounded hover:bg-[#EBEBEB]">
                             <section className='flex items-center gap-2'>
                                 <img src={game.imgUrl} alt="" className='w-[40px] h-[40px] rounded'/>
                                 <div className="des">
