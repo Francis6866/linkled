@@ -110,7 +110,7 @@ const SignUpForm = () => {
              {/* username */}
              <div className="mail my-8">
                 <label htmlFor="email" className='text-[0.75rem] font-bold text-[#333]'>Username:</label>
-                <div className={`border rounded ${mailError && 'border-red-600'}`}>
+                <div className={`border rounded ${usernameError && 'border-red-600'}`}>
                     <input 
                     type="text" 
                     name="username" 
