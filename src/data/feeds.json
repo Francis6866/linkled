@@ -1,0 +1,23 @@
+[
+    {
+        "name": "Pascal BORNET",
+        "shortBio": "Award-winning AI & Automation Expert, 20+ years | Age...",
+        "writeUp": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro provident pariatur iste praesentium earum suscipit consequatur doloremque minima nostrum voluptatem.",
+        "profilePicUrl": "/public/profiles/1.jpg",
+        "displayUrl": "/public/display/1.jpg"
+    },
+    {
+        "name": "Pascal BORNET",
+        "shortBio": "Award-winning AI & Automation Expert, 20+ years | Age...",
+        "writeUp": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro provident pariatur iste praesentium earum suscipit consequatur doloremque minima nostrum voluptatem.",
+        "profilePicUrl": "/public/profiles/2.jpg",
+        "displayUrl": "/public/display/2.jpg"
+    },
+    {
+        "name": "Pascal BORNET",
+        "shortBio": "Award-winning AI & Automation Expert, 20+ years | Age...",
+        "writeUp": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro provident pariatur iste praesentium earum suscipit consequatur doloremque minima nostrum voluptatem.",
+        "profilePicUrl": "/public/profiles/3.jpg",
+        "displayUrl": "/public/display/3.jpg"
+    }
+]
