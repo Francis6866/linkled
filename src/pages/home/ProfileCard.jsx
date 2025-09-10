@@ -11,7 +11,7 @@ const ProfileCard = ({
 
     useEffect(()=>{
         let details = JSON.parse(localStorage.getItem('userDetails'))
-        setUserName(details.username)
+        setUserName(details?.username)
     }, [])
 
 

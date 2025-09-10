@@ -197,7 +197,7 @@ const SignUpForm = () => {
 
             {/* Already signed in */}
             <div className='text-center text-[0.8rem]'>
-                <p>Already on LinkedIn?<a href="" className='text-[#0A66C2] font-bold'> Sign in</a></p>
+                <p>Already on LinkedIn?<a href="signIn" className='text-[#0A66C2] font-bold'> Sign in</a></p>
             </div>
         </form> {/* Form end */}
 

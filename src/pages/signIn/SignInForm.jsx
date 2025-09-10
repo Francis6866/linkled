@@ -166,7 +166,7 @@ const SignInForm = () => {
     </form> {/* Form end */}
 
     <div>
-    <p>New to Linkedln?<a href="" className='text-[#0A66C2] font-bold text-[0.8rem]'> Join now</a></p>
+    <p>New to Linkedln?<a href="/" className='text-[#0A66C2] font-bold text-[0.8rem]'> Join now</a></p>
     </div>
 </div>
   )

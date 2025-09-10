@@ -8,6 +8,7 @@ import NotifyLayout from "./layouts/NotifyLayout"
 import SignInForm from "./pages/signIn/SignInForm"
 import SignUpForm from "./pages/signUp/SignUpForm"
 import OverallOut from "./layouts/OverallOut"
+import Protected from "./components/Protected"
 
 
 function App() {
@@ -20,12 +21,33 @@ function App() {
           <Route path="signIn" element={<SignInForm />}/>
 
           {/* Sign in */}
+          
           <Route path="main" element={<OverallOut />}>
-            <Route index element={<HomeLayout2 />}/>
-            <Route path="network" element={<NetworkLayout />}/>
-            <Route path="jobs" element={<JobsLayout /> }/>
-            <Route path="message" element={<MessageLayout /> }/>
-            <Route path="notify" element={<NotifyLayout />}/>
+            <Route index element={
+              <Protected>
+                <HomeLayout2 />
+              </Protected>
+            }/>
+            <Route path="network" element={
+              <Protected>
+                <NetworkLayout />
+              </Protected>
+            }/>
+            <Route path="jobs" element={
+              <Protected>
+                <JobsLayout /> 
+              </Protected>
+            }/>
+            <Route path="message" element={
+              <Protected>
+                <MessageLayout />
+              </Protected>
+             }/>
+            <Route path="notify" element={
+              <Protected>
+                <NotifyLayout />
+              </Protected>
+            }/>
           </Route>
       </Routes>
     </>
